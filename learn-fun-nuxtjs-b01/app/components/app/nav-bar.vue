@@ -1,7 +1,11 @@
 <template>
   <nav>
     <ul>
-      <li><strong>Tasks App</strong></li>
+      <li><strong>
+         <NuxtLink to="/">
+					<strong>Tasks App</strong>
+				</NuxtLink>
+      </strong></li>
     </ul>
     <ul>
       <li>
