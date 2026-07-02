@@ -3,7 +3,7 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 
 const toast = useToast();
 
-export function showError(nessage: string) {
+export function showToastError(nessage: string) {
     toast.error(nessage, {
         position: 'bottom-right',
         duration: 4000,
