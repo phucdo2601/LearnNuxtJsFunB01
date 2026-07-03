@@ -1,0 +1,43 @@
+export const useUserStore = defineStore('user-store', () => {
+
+    const searchRef = ref('');
+    const userData = ref<any>(null);
+    const page = ref(1);
+    const limit = ref(10);
+    const headers = useHeaders();
+
+    const userError = ref<any>(null);
+
+    async function fetchUsers() {
+        const {data, refresh, error} = await useFetch('/api/admin/users/get', {
+            headers: {
+                ...headers
+            },
+            query: {
+                search: searchRef.value,
+                page: page.value,
+                limit: limit.value
+            }
+        });
+
+        userError.value = error;
+
+        userData.value = data.value;
+        limit.value = userData.value?.metadata?.limit;
+        page.value = userData.value?.metadata?.page;
+
+    }
+
+    async function changePage(newPage: number) {
+        page.value = newPage;
+        await fetchUsers();
+    }
+
+    return {
+        changePage,
+        fetchUsers,
+        userData,
+        searchRef,
+        userError
+    }
+});

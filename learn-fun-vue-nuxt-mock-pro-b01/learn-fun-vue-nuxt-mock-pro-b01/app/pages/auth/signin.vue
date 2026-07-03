@@ -82,7 +82,13 @@ import FormError from '~/components/base-components/FormError.vue';
     const userCookie = useCookie('user', userCookieSettings);
 
     const submitInput = async () => {
+      const isValid = v$.value.$validate();
 
+      if (!isValid) {
+          return;
+      }
+
+      
     }
 
 </script>

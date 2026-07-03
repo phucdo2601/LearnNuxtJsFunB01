@@ -77,5 +77,14 @@ const v$ = useVuelidate(rules, registerInput);
 const loading = ref(false);
 const router = useRouter();
 
-const submitInput = async () => {};
+const submitInput = async () => {
+  const isValid = v$.value.$validate();
+
+    if (!isValid) {
+        return;
+    }
+
+    
+  
+};
 </script>
