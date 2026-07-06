@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NuxtPage />
+        <h1>This is about-1 content page in vue pro b01</h1>
     </div>
 </template>
 
